@@ -1,18 +1,26 @@
-const containerDiv = document.querySelector("#container");
+function printGrid(sides){
+    const containerDiv = document.querySelector("#container");
 
-const resetBtn = document.createElement("button");
+    // Clear all children of container if any
+    while (containerDiv.firstChild){
+        containerDiv.removeChild(containerDiv.firstChild);
+    }
 
-let sides = 16;
+    const resetBtn = document.createElement("button");
 
-resetBtn.textContent = "Reset Canvas";
+    resetBtn.textContent = "Reset Canvas";
+    resetBtn.addEventListener("click",()=>{
+        sides = prompt("Please enter number of squares per side (<100): ");
+    
+        if (sides > 100){
+            alert("Sides must be lower than 100");
+        }else{
+            printGrid(sides);
+        }
+    });
+    containerDiv.appendChild(resetBtn);
 
-resetBtn.addEventListener("click",()=>{
-    sides = prompt("Please enter number of squares per side (<100): ");
-});
 
-containerDiv.appendChild(resetBtn);
-
-function printGrid(sides, containerDiv){
     for (j=0;j<sides;j++){
         const rowDiv = document.createElement("div");
         rowDiv.setAttribute("class","rowDiv");
@@ -29,4 +37,5 @@ function printGrid(sides, containerDiv){
     }
 }
 
-printGrid(sides, containerDiv);
+
+printGrid(16);
