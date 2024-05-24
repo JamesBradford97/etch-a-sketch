@@ -1,10 +1,13 @@
 .gridDiv{
     width: 50px;
     height: 50px;
+    flex-grow: 1;
+    flex-shrink: 1;
     border: solid 1px grey;
 }
 .rowDiv{
     display: flex;
+    width: 960px;
 }
 .hover{
     background-color: black;
