@@ -7,6 +7,9 @@ for (j=0;j<16;j++){
     for (i=0;i<16;i++){
         const gridDiv = document.createElement("div");
         gridDiv.setAttribute("class","gridDiv");
+        gridDiv.addEventListener("mouseenter",()=>{
+            gridDiv.setAttribute("class","gridDiv hover");
+        });
         rowDiv.appendChild(gridDiv);
     }
     containerDiv.appendChild(rowDiv);
